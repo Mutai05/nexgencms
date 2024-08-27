@@ -1,0 +1,81 @@
+{% extends "core/base.html" %}
+
+<!-- Block title -->
+{% block title %}Blog | Nexgensof Digital Company{% endblock %}
+
+<!-- Block Content -->
+{% block content %}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center py-5">
+    <h1 class="display-2 text-white mb-4 animated slideInDown">Insights</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="{{ url_for('core.index') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+        <li class="breadcrumb-item text-primary" aria-current="page">Insights</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Blog Start -->
+<div class="container-xxl pt-5">
+  <div class="container">
+    <div
+      class="text-center text-md-start pb-5 pb-md-0 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 500px"
+    >
+      <p class="fs-5 fw-medium text-primary">Insights</p>
+      <h1 class="display-5 mb-5">Learn more from our Articles</h1>
+    </div>
+
+    <!-- Blog Post Grid -->
+    <div class="row g-4">
+      {% for post in posts %}
+      <div class="col-md-6 col-lg-4">
+        <div class="project-item">
+          <div class="position-relative">
+            <!-- Display the featured image if available -->
+            {% if post.image_filename %}
+            <img
+              class="img-fluid blog-image"
+              src="{{ url_for('static', filename='uploads/' ~ post.image_filename) }}"
+              alt="{{ post.title }}"
+            />
+            {% else %}
+            <!-- Fallback image if no featured image is available -->
+            <img
+              class="img-fluid blog-image"
+              src="{{ url_for('core.static', filename='img/sliders/bg-1.jpg') }}"
+              alt="{{ post.title }}"
+            />
+            {% endif %}
+
+            <div class="project-overlay">
+              <a
+                class="btn btn-lg-square btn-light rounded-circle m-1"
+                href="{{ url_for('blog.single_post', post_id=post.id) }}"
+                ><i class="fa fa-link"></i
+              ></a>
+            </div>
+          </div>
+          <div class="p-4">
+            <a class="d-block h5" href="{{ url_for('blog.single_post', post_id=post.id) }}"
+              >{{ post.title }}</a
+            >
+            <p>{{ post.content[:60] }}...</p>
+            <a href="{{ url_for('blog.single_post', post_id=post.id) }}"><span>Read More >></span></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- Blog End -->
+
+{% endblock %}
