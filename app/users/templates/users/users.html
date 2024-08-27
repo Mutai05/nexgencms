@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+<!-- Block title -->
+{% block title %}Users | Admin Dashboard{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main">
+  <div class="w3-container">
+    <div class="d-flex align-items-center mb-4">
+      <h3 class="mb-0 mr-3">USERS</h3>
+    </div>
+    <div class="w3-container mt-4">
+      <ul class="w3-ul w3-card-4 w3-white">
+        {% for user in users %}
+        <li class="w3-padding-16 mb-3">
+          <img
+            src="{{ url_for('users.static', filename='img//avatar2.png') }}"
+            class="w3-left w3-circle w3-margin-right"
+            style="width: 35px"
+          />
+          <span class="w3-xlarge">{{ user.username }}</span><br />
+          <span>{{ user.email }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endblock %}
+</div>
