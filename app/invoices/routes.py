@@ -14,7 +14,7 @@ from weasyprint import HTML
 @login_required
 def index():
     invoices_list = Invoice.query.all()
-    return render_template('invoice_list.html', invoices=invoices_list)
+    return render_template('invoices/invoice_list.html', invoices=invoices_list)
 
 # Create invoice
 
@@ -39,7 +39,7 @@ def new():
         flash('Invoice created successfully!', 'success')
         return redirect(url_for('invoices.index'))
     
-    return render_template('new_invoice.html', form=form)
+    return render_template('invoices/new_invoice.html', form=form)
 
 # View invoice
 
@@ -47,7 +47,7 @@ def new():
 @login_required
 def view_invoice(invoice_id):
     invoice = Invoice.query.get_or_404(invoice_id)
-    return render_template('single_invoice.html', invoice=invoice)
+    return render_template('invoices/single_invoice.html', invoice=invoice)
 
 # Generate Invoice PDF
 
@@ -55,7 +55,7 @@ def view_invoice(invoice_id):
 @login_required
 def generate_pdf(invoice_id):
     invoice = Invoice.query.get_or_404(invoice_id)
-    rendered = render_template('invoice_pdf.html', invoice=invoice)
+    rendered = render_template('invoices/invoice_pdf.html', invoice=invoice)
     
     pdf = HTML(string=rendered).write_pdf()
     
