@@ -1,0 +1,75 @@
+{% extends "core/base.html" %}
+
+<!-- Block title -->
+{% block title %}Register | Admin Dashboard{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<!-- Container for centering the registration form on the page -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h1 class="h4">Register</h1>
+        </div>
+
+        <div class="card-body">
+          <!-- Registration form starts here -->
+          <form method="POST">
+            <!-- Username input field with Bootstrap styling -->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                class="form-control"
+                id="username"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+
+            <!-- Email input field with Bootstrap styling -->
+            <div class="form-group mt-3">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <!-- Password input field with Bootstrap styling -->
+            <div class="form-group mt-3">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <!-- Register button styled with Bootstrap -->
+            <div class="d-grid gap-2 mt-4">
+              <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Card footer with a link to the login page -->
+        <div class="card-footer text-center">
+          <a href="{{ url_for('users.login') }}">Already have an account? Login here.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of container -->
+{% endblock %}
