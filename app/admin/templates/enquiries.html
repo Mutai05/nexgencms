@@ -1,0 +1,57 @@
+<!-- Extends admin template -->
+{% extends "admin/admin.html" %}
+
+<!-- Block title -->
+{% block title %}Enquiries{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<div class="w3-main">
+  <div class="w3-container">
+    <div class="d-flex align-items-center mb-4">
+      <h3 class="mb-0 mr-3">ENQUIRIES</h3>
+      <a href="#" class="btn btn-primary">Add New</a>
+    </div>
+    <div class="w3-container row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+            <td>2024-08-24</td>
+            <td>Emily Johnson</td>
+            <td>emily@example.com</td>
+            <td>Interested in our services</td>
+            <td>Responded</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>2024-08-23</td>
+            <td>Michael Brown</td>
+            <td>michael@example.com</td>
+            <td>Request for a quote</td>
+            <td>Pending</td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>2024-08-22</td>
+            <td>Sarah Lee</td>
+            <td>sarah@example.com</td>
+            <td>Feedback on product</td>
+            <td>Resolved</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
