@@ -1,0 +1,76 @@
+<!-- Extends admin template -->
+{% extends "admin/admin.html" %}
+
+<!-- Block title -->
+{% block title %}Dashboard{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<div class="w3-main">
+  <div class="w3-container">
+    <div class="d-flex align-items-center mb-4">
+      <h3 class="mb-0 mr-3">INVOICES</h3>
+      <a href="{{ url_for('invoices.new') }}" class="btn btn-primary">New Invoice</a>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>Client</th>
+            <!-- Hide Description column on small screens -->
+            <th class="d-none d-md-table-cell">Description</th>
+            <th>Total Amount</th>
+            <!-- Hide Due Date column on small screens -->
+            <th class="d-none d-md-table-cell">Due Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for invoice in invoices %}
+          <tr>
+            <td>{{ invoice.invoice_to }}</td>
+            <td>{{ invoice.attention }}</td>
+            <!-- Hide Description column on small screens -->
+            <td class="d-none d-md-table-cell">{{ invoice.description }}</td>
+            <td>KSh {{ invoice.total_amount }}</td>
+            <!-- Hide Due Date column on small screens -->
+            <td class="d-none d-md-table-cell">{{ invoice.due_date.strftime('%Y-%m-%d') }}</td>
+            <td>
+              {% if invoice.is_paid %}
+              <span class="badge badge-success">PAID</span>
+              {% else %}
+              <span class="badge badge-danger">NOT PAID</span>
+              {% endif %}
+            </td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Invoice actions">
+                <a
+                  href="{{ url_for('invoices.view_invoice', invoice_id=invoice.id) }}"
+                  class="btn btn-secondary btn-sm"
+                  >View</a
+                >
+                <a
+                  href="{{ url_for('invoices.generate_pdf', invoice_id=invoice.id) }}"
+                  class="btn btn-info btn-sm"
+                  target="_blank"
+                  >PDF</a
+                >
+                <form
+                  action="{{ url_for('invoices.delete_invoice', invoice_id=invoice.id) }}"
+                  method="POST"
+                  style="display: inline"
+                >
+                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
