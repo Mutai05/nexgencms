@@ -1,0 +1,52 @@
+<!-- Extends admin template -->
+{% extends "admin/admin.html" %}
+
+<!-- Block title -->
+{% block title %}Database{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main">
+  <div class="w3-container">
+    <div class="d-flex align-items-center mb-4">
+      <h3 class="mb-0 mr-3">DATABASE</h3>
+    </div>
+    <div class="table-responsive">
+      {% for table_name, rows in tables_data.items() %}
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="card-title">{{ table_name }}</h3>
+        </div>
+        <div class="card-body">
+          {% if rows is string %}
+          <div class="alert alert-danger">Error: {{ rows }}</div>
+          {% else %} {% if rows|length > 0 %}
+          <table class="table table-striped table-bordered table-sm">
+            <thead>
+              <tr>
+                {% for column in rows[0].keys() %}
+                <th>{{ column }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in rows %}
+              <tr>
+                {% for column in row.keys() %}
+                <td>{{ row[column] }}</td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <div class="alert alert-info">No data available for this table.</div>
+          {% endif %} {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock %}
+</div>
