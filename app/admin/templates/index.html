@@ -1,0 +1,146 @@
+<!-- Extends admin template -->
+{% extends "admin/admin.html" %}
+
+<!-- Block title -->
+{% block title %}Dashboard{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main">
+  <div class="w3-container">
+    <h3 class="mb-4">DASHBOARD</h3>
+    <div class="row">
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card text-white bg-primary">
+          <div class="card-body">
+            <h5 class="card-title">Total Pages</h5>
+            <p class="card-text">7</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card text-white bg-success">
+          <div class="card-body">
+            <h5 class="card-title">Total Posts</h5>
+            <p class="card-text">24</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card text-white bg-info">
+          <div class="card-body">
+            <h5 class="card-title">Total Users</h5>
+            <p class="card-text">15</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card text-white bg-warning">
+          <div class="card-body">
+            <h5 class="card-title">Total Services</h5>
+            <p class="card-text">5</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Portfolio</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">View and manage portfolio items.</p>
+            <a href="#" class="btn btn-primary">Manage Portfolio</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Blog & Articles</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">View and manage blog posts and articles.</p>
+            <a href="{{ url_for('admin.posts') }}" class="btn btn-success">Manage Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Recent Posts Section -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            <h5 class="mb-0">Recently Published Posts</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">Post Title 1 - <small>2024-08-24</small></li>
+              <li class="list-group-item">Post Title 2 - <small>2024-08-23</small></li>
+              <li class="list-group-item">Post Title 3 - <small>2024-08-22</small></li>
+              <li class="list-group-item">Post Title 4 - <small>2024-08-21</small></li>
+              <li class="list-group-item">Post Title 5 - <small>2024-08-20</small></li>
+            </ul>
+            <a href="{{ url_for('admin.posts') }}" class="btn btn-info mt-3">View All Posts</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Users Section -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-header bg-warning text-white">
+            <h5 class="mb-0">Recently Registered Users</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">User Name 1 - <small>2024-08-24</small></li>
+              <li class="list-group-item">User Name 2 - <small>2024-08-23</small></li>
+              <li class="list-group-item">User Name 3 - <small>2024-08-22</small></li>
+              <li class="list-group-item">User Name 4 - <small>2024-08-21</small></li>
+              <li class="list-group-item">User Name 5 - <small>2024-08-20</small></li>
+            </ul>
+            <a href="{{ url_for('users.index') }}" class="btn btn-warning mt-3">View All Users</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Recent Activity</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2024-08-24</td>
+          <td>New user registered</td>
+        </tr>
+        <tr>
+          <td>2024-08-23</td>
+          <td>Product sold</td>
+        </tr>
+        <tr>
+          <td>2024-08-22</td>
+          <td>New blog post published</td>
+        </tr>
+        <tr>
+          <td>2024-08-21</td>
+          <td>Portfolio item added</td>
+        </tr>
+        <tr>
+          <td>2024-08-20</td>
+          <td>Service page updated</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
