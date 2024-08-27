@@ -1,0 +1,348 @@
+/* Admin Styles */
+
+
+h3.mb-0.mr-3 {
+    font-size: 1.6rem;
+}
+
+#top-bar {
+  z-index: 4;
+}
+
+#avatar-img {
+  width: 40px;
+}
+
+#mySidebar {
+  z-index: 3;
+  width: 300px;
+}
+
+#main-content {
+  margin-left: 0 !important;
+  margin-top: 30px;
+}
+
+#header {
+  padding-top: 20px;
+}
+
+.w3-container {
+    padding-top: 10px;
+  }
+
+.w3-container img {
+  width: 100%;
+}
+
+.w3-container .w3-grey .w3-green,
+.w3-container .w3-grey .w3-orange,
+.w3-container .w3-grey .w3-red {
+  width: 25%;
+}
+
+.w3-container .w3-grey .w3-orange {
+  width: 50%;
+}
+
+.w3-container .w3-grey .w3-red {
+  width: 75%;
+}
+
+/* styles.css */
+
+/* Top container styles */
+
+  
+  .top-container .w3-bar-item {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .top-container .w3-bar-item .fa {
+    margin-right: 5px;
+  }
+  
+  .top-container .notification-badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  
+
+  /* Media query to hide left-side items on mobile screens */
+@media screen and (max-width: 992px) {
+    .top-container .home-link,
+    .top-container .new-post-link,
+    .top-container .notification-link {
+      display: none; /* Hide left-side items on mobile screens */
+    }
+
+    h3.mb-0.mr-3 {
+        font-size: 1.2rem;
+    }
+  }
+
+  .w3-xlarge {
+    font-size: 1rem !important;
+}
+
+/* New Post */
+
+.btn-primary-custom {
+    background-color: #007bff !important;
+    border: none;
+    color: #fff !important;
+  }
+  .btn-primary-custom:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-primary-view {
+    background-color: #222529 !important;
+    border: none;
+    color: #fff !important;
+  }
+  .btn-primary-custom:hover {
+    background-color: #1c1f24;
+  }
+
+  .box-container {
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .box-container .box {
+    margin-bottom: 1rem;
+  }
+  .box-container h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .box-container .btn {
+    margin-right: 0.5rem;
+  }
+  .category-container ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .category-container ul li {
+    margin-bottom: 0.5rem;
+  }
+  .add-new-cat a {
+    display: flex;
+    align-items: center;
+  }
+  .add-new-cat i {
+    margin-right: 0.5rem;
+  }
+
+  /* Media CSS */
+
+  /* media.css */
+
+.btn {
+  line-height: 1.2 !important;
+}
+
+.btn-small {
+  padding: 0.25rem 0.5rem !important;
+  font-size: 0.75rem !important;
+}
+
+.card-img-top {
+  height: 200px !important;
+  object-fit: cover !important;
+  cursor: pointer !important;
+}
+
+
+a.btn.btn-primary.btn-small.mb-2 {
+  margin: 0 !important;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+.card-body {
+  padding: 0.5rem !important;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-3, .col-sm-6 {
+  display: flex;
+  justify-content: center;
+}
+
+.media-thumbnail {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  height: 250px !important; /* Set a fixed height */
+  object-fit: cover; /* Ensure images cover the box without distortion */
+}
+
+a.btn.btn-primary.btn-sm.mb-2 {
+  margin-bottom: 0 !important;
+}
+
+/* Upload media */
+
+body {
+  background-color: #f4f6f9;
+  font-family: Arial, sans-serif;
+}
+.form-container {
+  margin-top: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.form-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+.custom-file {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.custom-file-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  height: 100%;
+  font-size: 14px;
+  text-align: right;
+  opacity: 0;
+  cursor: pointer;
+}
+.custom-file-label {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  color: #6c757d;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.btn-upload {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn-upload:hover {
+  background-color: #0056b3;
+}
+
+/* Custom Flash Message Styles */
+.flash-message {
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* W3.CSS Category-Specific Styles */
+.w3-success {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+
+.w3-error, .w3-danger {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+.w3-warning {
+  background-color: #ff9800 !important;
+  color: white !important;
+}
+
+.w3-info {
+  background-color: #2196F3 !important;
+  color: white !important;
+}
+
+/* Close Button Styles */
+.w3-button.w3-display-topright {
+  color: white;
+  text-shadow: none;
+  opacity: 0.7;
+}
+
+.w3-button.w3-display-topright:hover {
+  opacity: 1.0;
+}
+
+
+/* Invoices List */
+
+/* Optional: Additional styling for better spacing on small screens */
+@media (max-width: 767.98px) {
+  .btn-group .btn {
+    margin-bottom: 5px;
+    width: 100%; /* Makes buttons full-width on small screens */
+  }
+}
+
+
+a.btn.btn-info.btn-sm {
+  margin: 0 5px;
+}
+
+
+/* Database */
+
+h3.card-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+th {
+  text-transform: capitalize;
+}
