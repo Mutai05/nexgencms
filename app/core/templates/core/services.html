@@ -1,0 +1,307 @@
+{% extends "core/base.html" %}
+
+<!-- Block title -->
+{% block title %}Services | Nexgensof Digital Company{% endblock %}
+
+<!-- Block Content -->
+{% block content %}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center py-5">
+    <h1 class="display-2 text-white mb-4 animated slideInDown">Services</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+        <li class="breadcrumb-item text-primary" aria-current="page">Services</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px">
+      <p class="fs-5 fw-medium text-primary">Our Services</p>
+      <h1 class="display-5 mb-5">Digital Marketing Services that We Offer</h1>
+      <p>
+        Nexgensof offers a comprehensive range of services designed to address the full spectrum of software
+        development needs:
+      </p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="service-item position-relative h-100">
+          <div class="service-text rounded p-5">
+            <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 64px; height: 64px">
+              <img
+                class="img-fluid"
+                src="{{ url_for('core.static', filename='img/services/01.png') }}"
+                alt="Icon"
+              />
+            </div>
+            <h4 class="mb-3">Digital Marketing</h4>
+            <p class="mb-0">Tailored solutions that align with your business goals.</p>
+          </div>
+          <div class="service-btn rounded-0 rounded-bottom">
+            <a class="text-primary fw-medium" href=""
+              >Read More<i class="bi bi-chevron-double-right ms-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="service-item position-relative h-100">
+          <div class="service-text rounded p-5">
+            <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 64px; height: 64px">
+              <img
+                class="img-fluid"
+                src="{{ url_for('core.static', filename='img/services/02.png') }}"
+                alt="Icon"
+              />
+            </div>
+            <h4 class="mb-3">Web Design</h4>
+            <p class="mb-0">Tailored solutions that align with your business goals.</p>
+          </div>
+          <div class="service-btn rounded-0 rounded-bottom">
+            <a class="text-primary fw-medium" href=""
+              >Read More<i class="bi bi-chevron-double-right ms-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="service-item position-relative h-100">
+          <div class="service-text rounded p-5">
+            <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 64px; height: 64px">
+              <img
+                class="img-fluid"
+                src="{{ url_for('core.static', filename='img/services/03.png') }}"
+                alt="Icon"
+              />
+            </div>
+            <h4 class="mb-3">SEO Optimization</h4>
+            <p class="mb-0">Tailored solutions that align with your business goals.</p>
+          </div>
+          <div class="service-btn rounded-0 rounded-bottom">
+            <a class="text-primary fw-medium" href=""
+              >Read More<i class="bi bi-chevron-double-right ms-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="service-item position-relative h-100">
+          <div class="service-text rounded p-5">
+            <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 64px; height: 64px">
+              <img
+                class="img-fluid"
+                src="{{ url_for('core.static', filename='img/services/04.png') }}"
+                alt="Icon"
+              />
+            </div>
+            <h4 class="mb-3">Social Media Marketing</h4>
+            <p class="mb-0">Tailored solutions that align with your business goals.</p>
+          </div>
+          <div class="service-btn rounded-0 rounded-bottom">
+            <a class="text-primary fw-medium" href=""
+              >Read More<i class="bi bi-chevron-double-right ms-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="service-item position-relative h-100">
+          <div class="service-text rounded p-5">
+            <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 64px; height: 64px">
+              <img
+                class="img-fluid"
+                src="{{ url_for('core.static', filename='img/services/05.png') }}"
+                alt="Icon"
+              />
+            </div>
+            <h4 class="mb-3">Content Marketing</h4>
+            <p class="mb-0">Tailored solutions that align with your business goals.</p>
+          </div>
+          <div class="service-btn rounded-0 rounded-bottom">
+            <a class="text-primary fw-medium" href=""
+              >Read More<i class="bi bi-chevron-double-right ms-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="service-item position-relative h-100">
+          <div class="service-text rounded p-5">
+            <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 64px; height: 64px">
+              <img
+                class="img-fluid"
+                src="{{ url_for('core.static', filename='img/services/07.png') }}"
+                alt="Icon"
+              />
+            </div>
+            <h4 class="mb-3">Email Marketing</h4>
+            <p class="mb-0">Tailored solutions that align with your business goals.</p>
+          </div>
+          <div class="service-btn rounded-0 rounded-bottom">
+            <a class="text-primary fw-medium" href=""
+              >Read More<i class="bi bi-chevron-double-right ms-2"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Service End -->
+
+<!-- Testimonial Start -->
+<div class="container-xxl pt-5">
+  <div class="container">
+    <div
+      class="text-center text-md-start pb-5 pb-md-0 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 500px"
+    >
+      <p class="fs-5 fw-medium text-primary">Testimonial</p>
+      <h1 class="display-5 mb-5">What Clients Say About Our Services!</h1>
+    </div>
+    <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+      <div class="testimonial-item rounded p-4 p-lg-5 mb-5">
+        <img
+          class="mb-4"
+          src="{{ url_for('core.static', filename='img/testimonials/testimonial.webp') }}"
+          alt=""
+        />
+        <p class="mb-4">
+          Tailored solutions that align with your business goals. Tailored solutions that align with your
+          business goals.
+        </p>
+        <h5>Client Name</h5>
+        <span class="text-primary">Profession</span>
+      </div>
+      <div class="testimonial-item rounded p-4 p-lg-5 mb-5">
+        <img
+          class="mb-4"
+          src="{{ url_for('core.static', filename='img/testimonials/testimonial-1.jpg') }}"
+          alt=""
+        />
+        <p class="mb-4">
+          Tailored solutions that align with your business goals. Tailored solutions that align with your
+          business goals.
+        </p>
+        <h5>Client Name</h5>
+        <span class="text-primary">Profession</span>
+      </div>
+      <div class="testimonial-item rounded p-4 p-lg-5 mb-5">
+        <img
+          class="mb-4"
+          src="{{ url_for('core.static', filename='img/testimonials/testimonial-2.avif') }}"
+          alt=""
+        />
+        <p class="mb-4">
+          Tailored solutions that align with your business goals. Tailored solutions that align with your
+          business goals.
+        </p>
+        <h5>Client Name</h5>
+        <span class="text-primary">Profession</span>
+      </div>
+      <div class="testimonial-item rounded p-4 p-lg-5 mb-5">
+        <img
+          class="mb-4"
+          src="{{ url_for('core.static', filename='img/testimonials/testimonial-3.png') }}"
+          alt=""
+        />
+        <p class="mb-4">
+          Tailored solutions that align with your business goals. Tailored solutions that align with your
+          business goals.
+        </p>
+        <h5>Client Name</h5>
+        <span class="text-primary">Profession</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Testimonial End -->
+
+<!-- Quote Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+        <p class="fs-5 fw-medium text-primary">Get A Quote</p>
+        <h1 class="display-5 mb-4">Need Our Expert Help? We're Here!</h1>
+        <p>
+          Our team of experienced developers, designers, and consultants are passionate about technology and
+          committed to delivering solutions that drive real results.
+        </p>
+        <p class="mb-4">
+          Whether you’re a startup looking to bring a new idea to life or an established business seeking to
+          modernize your operations, Nexgensof has the expertise and resources to help you achieve your goals.
+        </p>
+        <a class="d-inline-flex align-items-center rounded overflow-hidden border border-primary" href="">
+          <span class="btn-lg-square bg-primary" style="width: 55px; height: 55px">
+            <i class="fa fa-phone-alt text-white"></i>
+          </span>
+          <span class="fs-5 fw-medium mx-4">+254720031035</span>
+        </a>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+        <h2 class="mb-4">Get A Free Quote</h2>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="name" placeholder="Your Name" />
+              <label for="name">Your Name</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="mail" placeholder="Your Email" />
+              <label for="mail">Your Email</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="mobile" placeholder="Your Mobile" />
+              <label for="mobile">Your Mobile</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <select class="form-select" id="service">
+                <option selected>Digital Marketing</option>
+                <option value="">Web Design</option>
+                <option value="">SEO Optimization</option>
+                <option value="">Social Media Marketing</option>
+                <option value="">Content Marketing</option>
+                <option value="">E-mail Marketing</option>
+              </select>
+              <label for="service">Choose A Service</label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a message here"
+                id="message"
+                style="height: 130px"
+              ></textarea>
+              <label for="message">Message</label>
+            </div>
+          </div>
+          <div class="col-12 text-center">
+            <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Quote End -->
+
+{% endblock %}
