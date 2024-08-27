@@ -27,7 +27,7 @@ def new_post():
 
     # Fetch list of uploaded images
     files = os.listdir(current_app.config['UPLOAD_FOLDER'])
-    return render_template('new_post.html', files=files)
+    return render_template('blog/new_post.html', files=files)
 
 # Edit post
 
@@ -50,7 +50,7 @@ def edit_post(post_id):
     
     # Fetch list of uploaded images
     files = os.listdir(current_app.config['UPLOAD_FOLDER'])
-    return render_template('edit_post.html', post=post, files=files)
+    return render_template('blog/edit_post.html', post=post, files=files)
 
 
 # Delete post
@@ -71,4 +71,4 @@ def delete_post(post_id):
 @blog.route('/post/<int:post_id>')
 def single_post(post_id):
     post = Post.query.get_or_404(post_id)
-    return render_template('single_post.html', post=post)
+    return render_template('blog/single_post.html', post=post)
