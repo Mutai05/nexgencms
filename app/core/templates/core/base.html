@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Digital Products Solution by Nexgensof" name="keywords" />
+    <meta
+      content="Explore our Digital Products  services tailored to boost your business."
+      name="description"
+    />
+
+    <!-- Favicon -->
+    <link href="{{ url_for('core.static', filename='img/logos/fav.png') }}" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('core.static', filename='lib/animate/animate.min.css') }}" />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('core.static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('core.static', filename='lib/lightbox/css/lightbox.min.css') }}"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('core.static', filename='css/bootstrap.min.css') }}" />
+
+    <!-- Template Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('core.static', filename='css/style.css') }}" />
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-primary text-white d-none d-lg-flex">
+      <div class="container py-2">
+        <!-- Reduced padding -->
+        <div class="row w-100 align-items-center">
+          <div class="col-lg-6 d-flex">
+            <small class="me-4"><i class="fa fa-map-marker-alt me-2"></i>1010 Westlands, Outering Road</small>
+            <small class="me-4"><i class="fa fa-envelope me-2"></i>info@nexgensof.com</small>
+            <small><i class="fa fa-phone-alt me-2"></i>+254720031035</small>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-end">
+            <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""
+              ><i class="fab fa-facebook-f social-icon"></i
+            ></a>
+            <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""
+              ><i class="fab fa-twitter social-icon"></i
+            ></a>
+            <a class="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href=""
+              ><i class="fab fa-linkedin-in social-icon"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-white sticky-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light p-lg-0">
+          <!-- Image Logo -->
+          <a href="{{ url_for('core.index') }}" class="navbar-brand">
+            <img
+              src="{{ url_for('core.static', filename='img/logo/logo.png') }}"
+              alt="Nexgensof Logo"
+              class="img-fluid"
+              style="max-height: 50px"
+            />
+          </a>
+
+          <!-- Toggle button for mobile view -->
+          <button
+            type="button"
+            class="navbar-toggler me-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar items -->
+          <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+            <div class="navbar-nav">
+              <a href="{{ url_for('core.index') }}" class="nav-item nav-link active">Home</a>
+              <a href="{{ url_for('core.about') }}" class="nav-item nav-link">About Us</a>
+              <a href="{{ url_for('core.services') }}" class="nav-item nav-link">Services</a>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insights</a>
+                <div class="dropdown-menu bg-light rounded-0 rounded-bottom m-0">
+                  <a href="{{ url_for('core.articles') }}" class="dropdown-item">Blog & Articles</a>
+                  <a href="{{ url_for('core.faqs') }}" class="dropdown-item">FAQ's</a>
+                </div>
+              </div>
+              <a href="{{ url_for('core.contact') }}" class="nav-item nav-link">Contact Us</a>
+              <a href="{{ url_for('users.register') }}" class="nav-item nav-link">Register</a>
+            </div>
+          </div>
+
+          <!-- Login -->
+          <div class="ms-auto d-none d-lg-block">
+            <a href="{{ url_for('users.login') }}" class="btn btn-primary rounded-pill py-2 px-3">Login</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Main Content -->
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-3 col-md-6">
+            <h4 class="text-white mb-4">Our Office</h4>
+            <hr />
+            <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>1010 Westlands, Outering Road</p>
+            <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+254 720 031 035</p>
+            <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@nexgensof.com</p>
+            <div class="d-flex pt-3">
+              <a class="btn btn-square btn-light rounded-circle me-2" href=""
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a class="btn btn-square btn-light rounded-circle me-2" href=""
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a class="btn btn-square btn-light rounded-circle me-2" href=""
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="text-white mb-4">Quick Links</h4>
+            <hr />
+            <a class="btn btn-link" href="{{ url_for('core.about') }}">About Us</a>
+            <a class="btn btn-link" href="{{ url_for('core.services') }}">Services</a>
+            <a class="btn btn-link" href="{{ url_for('core.articles') }}">Insights</a>
+            <a class="btn btn-link" href="{{ url_for('users.login') }}">Admin Login</a>
+            <a class="btn btn-link" href="{{ url_for('core.contact') }}">Contact Us</a>
+            <a class="btn btn-link" target="_blank" href="{{ url_for('api.get_posts') }}">Blog APIs</a>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="text-white mb-4">Business Hours</h4>
+            <hr />
+            <p class="mb-1">Monday - Friday</p>
+            <h6 class="text-light">09:00 AM - 05:00 PM</h6>
+            <p class="mb-1">Saturday</p>
+            <h6 class="text-light">09:00 AM - 12:00 PM</h6>
+            <p class="mb-1">Sunday</p>
+            <h6 class="text-light">Closed</h6>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="text-white mb-4">Socials</h4>
+            <hr />
+            <p>Let us connect on Social Media.</p>
+            <div class="d-flex pt-3">
+              <a class="btn btn-square btn-light rounded-circle me-2" href=""
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a class="btn btn-square btn-light rounded-circle me-2" href=""
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a class="btn btn-square btn-light rounded-circle me-2" href=""
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            &copy; <a class="fw-medium text-light" href="#">Nexgensof</a> | All Right Reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <!-- Copyrights -->
+            Powered By <a class="fw-medium text-light" href="https://nexgensof.com">Nexgensof CMS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('core.static', filename='lib/wow/wow.min.js') }}"></script>
+    <script src="{{ url_for('core.static', filename='lib/easing/easing.min.js') }}"></script>
+    <script src="{{ url_for('core.static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('core.static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('core.static', filename='lib/lightbox/js/lightbox.min.js') }}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ url_for('core.static', filename='js/main.js') }}"></script>
+  </body>
+</html>
