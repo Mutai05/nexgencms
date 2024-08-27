@@ -1,0 +1,51 @@
+<!-- Extends admin template -->
+{% extends "admin/admin.html" %}
+
+<!-- Block title -->
+{% block title %}Media{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main">
+  <div class="w3-container">
+    <div class="d-flex align-items-center mb-4">
+      <h3 class="mb-0 mr-3">MEDIA</h3>
+      <a href="{{ url_for('media.upload_file') }}" class="btn btn-primary">Upload Media</a>
+    </div>
+
+    <div class="row">
+      {% for file in files %}
+      <div class="col-md-3 col-sm-4 mb-4">
+        <div class="card">
+          <a
+            href="{{ url_for('media.download_file', name=file) }}"
+            data-lightbox="gallery"
+            data-title="{{ file }}"
+          >
+            <img
+              src="{{ url_for('media.download_file', name=file) }}"
+              alt="{{ file }}"
+              class="media-thumbnail img-thumbnail img-fluid"
+            />
+          </a>
+          <div class="card-body text-center">
+            <a
+              href="{{ url_for('media.download_file', name=file) }}"
+              class="btn btn-primary btn-sm mb-2"
+              data-lightbox="gallery"
+              data-title="{{ file }}"
+            >
+              View
+            </a>
+            <form action="{{ url_for('media.delete_file', name=file) }}" method="POST" class="d-inline">
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock %}
+</div>
