@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %} | Admin Dashboard</title>
+
+    <!-- Favicon -->
+    <link href="{{ url_for('core.static', filename='img/logos/fav.png') }}" rel="icon" />
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('admin.static', filename='css/admin.css') }}" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+
+    <!-- Include Lightbox CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="w3-light-grey">
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large top-container">
+      <a href="#" class="w3-bar-item home-link"> <i class="fa fa-home"></i> NEXGENCMS ADMIN DASHBOARD </a>
+      <a href="#" class="w3-bar-item new-post-link"> <i class="fa fa-plus"></i> New Post </a>
+      <a href="#" class="w3-bar-item notification-link">
+        <i class="fa fa-bell"></i><span class="notification-badge">5</span>
+      </a>
+      <span class="w3-bar-item w3-right user-greeting">
+        <i class="fa fa-user"></i> Hello, {{ current_user.username }}!
+      </span>
+      <!-- Menu button for small screens -->
+      <button
+        class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
+        onclick="w3_open();"
+      >
+        <i class="fa fa-bars"></i> Menu
+      </button>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav
+      class="w3-sidebar w3-collapse w3-white w3-animate-left"
+      style="z-index: 3; width: 300px"
+      id="mySidebar"
+    >
+      <br />
+      <div class="w3-container w3-row">
+        <div class="w3-col s4">
+          <img
+            src="{{ url_for('admin.static', filename='img//avatar2.png') }}"
+            class="w3-circle w3-margin-right"
+            style="width: 46px"
+          />
+        </div>
+        <div class="w3-col s8 w3-bar">
+          <span>Welcome, <strong>{{ current_user.username }}</strong></span
+          ><br />
+          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+        </div>
+      </div>
+      <hr />
+      <div class="w3-bar-block">
+        <a href="{{ url_for('admin.index') }}" class="w3-bar-item w3-button w3-padding"
+          ><i class="fa fa-bar-chart"></i> Dashboard</a
+        >
+        <a href="{{ url_for('admin.pages') }}" class="w3-bar-item w3-button w3-padding"
+          ><i class="fa fa-files-o"></i> Pages</a
+        >
+        <a href="{{ url_for('admin.posts') }}" class="w3-bar-item w3-button w3-padding">
+          <i class="fa fa-pencil-square-o"></i> Posts <span class="pending-count">{{ post_count }}</span>
+        </a>
+        <a href="{{ url_for('media.gallery') }}" class="w3-bar-item w3-button w3-padding">
+          <i class="fa fa-picture-o"></i> Media
+        </a>
+        <a href="{{ url_for('admin.services') }}" class="w3-bar-item w3-button w3-padding"
+          ><i class="fa fa-briefcase fa-fw"></i> Services</a
+        >
+        <a href="{{ url_for('admin.enquiries') }}" class="w3-bar-item w3-button w3-padding"
+          ><i class="fa fa-address-book-o"></i> Enquiries</a
+        >
+        <a href="{{ url_for('users.index') }}" class="w3-bar-item w3-button w3-padding"
+          ><i class="fa fa-user-circle"></i> Users</a
+        >
+        <a href="{{ url_for('invoices.index') }}" class="w3-bar-item w3-button w3-padding"
+          ><i class="fa fa-file-text-o"></i> Invoices</a
+        >
+        <a href="{{ url_for('admin.settings') }}" class="w3-bar-item w3-button w3-padding"
+          ><i class="fa fa-cogs fa-fw"></i> Settings</a
+        >
+        <a href="{{ url_for('database.db_details') }}" class="w3-bar-item w3-button w3-padding"
+          ><i class="fa fa-database fa-fw"></i> Database</a
+        >
+        <hr />
+        <a
+          href="#"
+          onclick="document.getElementById('logout-form').submit();"
+          class="w3-bar-item w3-button w3-padding"
+        >
+          <i class="fa fa-sign-out"></i> LogOut
+        </a>
+        <form
+          id="logout-form"
+          action="{{ url_for('users.logout') }}"
+          method="POST"
+          style="display: none"
+        ></form>
+      </div>
+    </nav>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div
+      class="w3-overlay w3-hide-large"
+      onclick="w3_close()"
+      style="cursor: pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+
+    <!-- Main content area -->
+    <div class="w3-main d-flex flex-column" style="margin-left: 300px; margin-top: 40px">
+      <div class="w3-container">
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+        <div class="w3-container mt-3">
+          {% for category, message in messages %}
+          <div class="w3-panel w3-{{ category }} w3-display-container flash-message">
+            <span
+              onclick="this.parentElement.style.display='none'"
+              class="w3-button w3-large w3-display-topright w3-hover-opacity"
+              >&times;</span
+            >
+            {{ message }}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %} {% endwith %}
+
+        <!-- Main content -->
+        {% block content %}{% endblock %}
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-16 w3-light-grey">
+          <p>
+            Powered by
+            <a href="" target="_blank">NEXGENCMS</a>
+          </p>
+        </footer>
+
+        <!-- End page content -->
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Get the Sidebar
+      var mySidebar = document.getElementById("mySidebar");
+
+      // Get the DIV with overlay effect
+      var overlayBg = document.getElementById("myOverlay");
+
+      // Toggle between showing and hiding the sidebar, and add overlay effect
+      function w3_open() {
+        if (mySidebar.style.display === "block") {
+          mySidebar.style.display = "none";
+          overlayBg.style.display = "none";
+        } else {
+          mySidebar.style.display = "block";
+          overlayBg.style.display = "block";
+        }
+      }
+
+      // Close the sidebar with the close button
+      function w3_close() {
+        mySidebar.style.display = "none";
+        overlayBg.style.display = "none";
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Include Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  </body>
+</html>
