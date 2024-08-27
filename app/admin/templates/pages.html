@@ -1,0 +1,112 @@
+<!-- Extends admin template -->
+{% extends "admin/admin.html" %}
+
+<!-- Block title -->
+{% block title %}Pages{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main">
+  <div class="w3-container">
+    <div class="d-flex align-items-center mb-4">
+      <h3 class="mb-0 mr-3">PAGES</h3>
+      <a href="#" class="btn btn-primary">Add New</a>
+    </div>
+    <div class="list-group">
+      <!-- Home Page -->
+      <div
+        class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-3"
+      >
+        <div class="mb-2 mb-md-0">
+          <h5 class="mb-1">Home</h5>
+          <p class="mb-1">Welcome to our website. Discover our services and portfolio.</p>
+          <small>Updated recently</small>
+        </div>
+        <a href="{{ url_for('core.index') }}" class="btn btn-info ml-md-3">View</a>
+      </div>
+
+      <!-- About Us Page -->
+      <div
+        class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-3"
+      >
+        <div class="mb-2 mb-md-0">
+          <h5 class="mb-1">About Us</h5>
+          <p class="mb-1">
+            Learn more about our team and our mission to deliver top-notch software solutions.
+          </p>
+          <small>Updated 2 days ago</small>
+        </div>
+        <a href="{{ url_for('core.about') }}" class="btn btn-info ml-md-3">View</a>
+      </div>
+
+      <!-- Services Page -->
+      <div
+        class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-3"
+      >
+        <div class="mb-2 mb-md-0">
+          <h5 class="mb-1">Services</h5>
+          <p class="mb-1">
+            Explore the range of services we offer, from custom software development to consulting.
+          </p>
+          <small>Updated 1 week ago</small>
+        </div>
+        <a href="{{ url_for('core.services') }}" class="btn btn-info ml-md-3">View</a>
+      </div>
+
+      <!-- Portfolio Page -->
+      <div
+        class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-3"
+      >
+        <div class="mb-2 mb-md-0">
+          <h5 class="mb-1">Portfolio</h5>
+          <p class="mb-1">
+            Check out our previous projects and see how we’ve helped other businesses succeed.
+          </p>
+          <small>Updated 3 weeks ago</small>
+        </div>
+        <a href="#" class="btn btn-info ml-md-3">View</a>
+      </div>
+
+      <!-- Blog & Articles Page -->
+      <div
+        class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-3"
+      >
+        <div class="mb-2 mb-md-0">
+          <h5 class="mb-1">Blog & Articles</h5>
+          <p class="mb-1">
+            Read our latest blog posts and articles on software development and industry trends.
+          </p>
+          <small>Updated 1 month ago</small>
+        </div>
+        <a href="{{ url_for('core.articles') }}" class="btn btn-info ml-md-3">View</a>
+      </div>
+
+      <!-- FAQ's Page -->
+      <div
+        class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-3"
+      >
+        <div class="mb-2 mb-md-0">
+          <h5 class="mb-1">FAQ's</h5>
+          <p class="mb-1">Find answers to the most frequently asked questions about our services.</p>
+          <small>Updated 2 months ago</small>
+        </div>
+        <a href="{{ url_for('core.faqs') }}" class="btn btn-info ml-md-3">View</a>
+      </div>
+
+      <!-- Contact Us Page -->
+      <div
+        class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-start mb-3"
+      >
+        <div class="mb-2 mb-md-0">
+          <h5 class="mb-1">Contact Us</h5>
+          <p class="mb-1">Get in touch with us for any inquiries or support needs.</p>
+          <small>Updated 2 days ago</small>
+        </div>
+        <a href="{{ url_for('core.contact') }}" class="btn btn-info ml-md-3">View</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
