@@ -52,3 +52,17 @@ def edit_post(post_id):
     files = os.listdir(current_app.config['UPLOAD_FOLDER'])
     return render_template('edit_post.html', post=post, files=files)
 
+
+# Delete post
+
+@blog.route('/post/<int:post_id>/delete', methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    
+    db.session.delete(post)
+    db.session.commit()
+    
+    flash('Post has been deleted successfully.', 'success')
+    return redirect(url_for('admin.posts'))
+
