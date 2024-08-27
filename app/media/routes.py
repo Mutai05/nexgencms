@@ -51,3 +51,19 @@ def gallery():
     # List all files in the upload folder
     files = os.listdir(current_app.config['UPLOAD_FOLDER'])
     return render_template('media.html', files=files)
+
+# Delete media
+
+@media.route('/delete/<name>', methods=['POST'])
+@login_required
+def delete_file(name):
+    try:
+        file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], name)
+        if os.path.exists(file_path):
+            os.remove(file_path)
+            flash('File successfully deleted.', 'success')
+        else:
+            flash('File not found.', 'error')
+    except Exception as e:
+        flash(f'Error deleting file: {str(e)}', 'error')
+    return redirect(url_for('media.gallery'))
