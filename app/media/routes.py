@@ -35,3 +35,9 @@ def upload_file():
         return redirect(url_for('media.gallery'))
 
     return render_template('upload.html')
+
+# Files path
+
+@media.route('/uploads/<name>')
+def download_file(name):
+    return send_from_directory(os.path.join(current_app.root_path, 'static/uploads'), name)
