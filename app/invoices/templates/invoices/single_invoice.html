@@ -1,0 +1,65 @@
+<!-- Extends admin template -->
+{% extends "admin/admin.html" %}
+
+<!-- Block title -->
+{% block title %}Invoice Details{% endblock %}
+
+<!-- Block content -->
+<!-- PAGE CONTENT  -->
+{% block content %}
+<div class="w3-main">
+  <div class="w3-container">
+    <div class="d-flex align-items-center mb-4">
+      <h3 class="mb-0 mr-3">Invoice Details</h3>
+      <a
+        href="{{ url_for('invoices.generate_pdf', invoice_id=invoice.id) }}"
+        class="btn btn-info btn-sm"
+        target="_blank"
+        >PDF</a
+      >
+    </div>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th>Invoice To:</th>
+          <td>{{ invoice.invoice_to }}</td>
+        </tr>
+        <tr>
+          <th>ATTN:</th>
+          <td>{{ invoice.attention }}</td>
+        </tr>
+        <tr>
+          <th>Description:</th>
+          <td>{{ invoice.description }}</td>
+        </tr>
+        <tr>
+          <th>Amount:</th>
+          <td>KSh {{ invoice.amount }}</td>
+        </tr>
+        <tr>
+          <th>Sub Total:</th>
+          <td>KSh {{ invoice.sub_total }}</td>
+        </tr>
+        <tr>
+          <th>Total Amount:</th>
+          <td>KSh {{ invoice.total_amount }}</td>
+        </tr>
+        <tr>
+          <th>Due Date:</th>
+          <td>{{ invoice.due_date.strftime('%Y-%m-%d') }}</td>
+        </tr>
+        <tr>
+          <th>Status:</th>
+          <td>
+            {% if invoice.is_paid %}
+            <span class="badge badge-success">PAID</span>
+            {% else %}
+            <span class="badge badge-danger">NOT PAID</span>
+            {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {% endblock %}
+</div>
