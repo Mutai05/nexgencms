@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask Blog</title>
+    <!-- Include Bootstrap CSS (can be from CDN) -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Include jQuery (required for Bootstrap JS) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="{{ url_for('core.index') }}">Home</a>
+      <a href="{{ url_for('blog.new_post') }}">New Post</a>
+      <a href="{{ url_for('media.gallery') }}">Media</a>
+      <a href="{{ url_for('media.upload_file') }}">Upload Media</a>
+      <a href="{{ url_for('invoices.index') }}">Invoices</a>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>

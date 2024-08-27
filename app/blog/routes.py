@@ -5,8 +5,6 @@ from app import db
 from app.blog.models import Post
 from flask_login import login_required, current_user
 
-# New post
-
 @blog.route('/new', methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -27,9 +25,8 @@ def new_post():
 
     # Fetch list of uploaded images
     files = os.listdir(current_app.config['UPLOAD_FOLDER'])
-    return render_template('blog/new_post.html', files=files)
+    return render_template('new_post.html', files=files)
 
-# Edit post
 
 @blog.route('/post/<int:post_id>/edit', methods=['GET', 'POST'])
 @login_required
@@ -50,10 +47,7 @@ def edit_post(post_id):
     
     # Fetch list of uploaded images
     files = os.listdir(current_app.config['UPLOAD_FOLDER'])
-    return render_template('blog/edit_post.html', post=post, files=files)
-
-
-# Delete post
+    return render_template('edit_post.html', post=post, files=files)
 
 @blog.route('/post/<int:post_id>/delete', methods=['POST'])
 @login_required
@@ -66,9 +60,7 @@ def delete_post(post_id):
     flash('Post has been deleted successfully.', 'success')
     return redirect(url_for('admin.posts'))
 
-# Single post
-
 @blog.route('/post/<int:post_id>')
 def single_post(post_id):
     post = Post.query.get_or_404(post_id)
-    return render_template('blog/single_post.html', post=post)
+    return render_template('single_post.html', post=post)
