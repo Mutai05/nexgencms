@@ -66,3 +66,9 @@ def delete_post(post_id):
     flash('Post has been deleted successfully.', 'success')
     return redirect(url_for('admin.posts'))
 
+# Single post
+
+@blog.route('/post/<int:post_id>')
+def single_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    return render_template('single_post.html', post=post)
