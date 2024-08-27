@@ -41,3 +41,13 @@ def upload_file():
 @media.route('/uploads/<name>')
 def download_file(name):
     return send_from_directory(os.path.join(current_app.root_path, 'static/uploads'), name)
+
+
+#  Admin media gallery
+
+@media.route('/')
+@login_required
+def gallery():
+    # List all files in the upload folder
+    files = os.listdir(current_app.config['UPLOAD_FOLDER'])
+    return render_template('media.html', files=files)
