@@ -40,3 +40,11 @@ def new():
         return redirect(url_for('invoices.index'))
     
     return render_template('new_invoice.html', form=form)
+
+# View invoice
+
+@invoices.route('/invoice/<int:invoice_id>')
+@login_required
+def view_invoice(invoice_id):
+    invoice = Invoice.query.get_or_404(invoice_id)
+    return render_template('single_invoice.html', invoice=invoice)
