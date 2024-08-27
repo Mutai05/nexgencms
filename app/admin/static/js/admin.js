@@ -1,7 +1,7 @@
 /**
- * @author      Mutai Kelvin
- * @web         http://mutaikelvin.com
- * @mail        kelvok2014@gmail.com
+ * @author      Tayfun Erbilen
+ * @web         http://erbilen.net
+ * @mail        tayfunerbilen@gmail.com
  */
 $(function() {
 
