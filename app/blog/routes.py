@@ -28,3 +28,27 @@ def new_post():
     # Fetch list of uploaded images
     files = os.listdir(current_app.config['UPLOAD_FOLDER'])
     return render_template('new_post.html', files=files)
+
+# Edit post
+
+@blog.route('/post/<int:post_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    
+    if request.method == 'POST':
+        post.title = request.form.get('title')
+        post.content = request.form.get('content')
+        image_filename = request.form.get('image_filename')  # Ensure this matches your form field
+        
+        if image_filename:
+            post.image_filename = image_filename
+        
+        db.session.commit()
+        flash('Post has been updated successfully.', 'success')
+        return redirect(url_for('admin.posts', post_id=post.id))
+    
+    # Fetch list of uploaded images
+    files = os.listdir(current_app.config['UPLOAD_FOLDER'])
+    return render_template('edit_post.html', post=post, files=files)
+
