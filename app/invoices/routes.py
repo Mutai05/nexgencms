@@ -69,3 +69,14 @@ def generate_pdf(invoice_id):
         mimetype='application/pdf'
     )
     return response
+
+# Delete invoice 
+
+@invoices.route('/delete/<int:invoice_id>', methods=['POST'])
+@login_required
+def delete_invoice(invoice_id):
+    invoice = Invoice.query.get_or_404(invoice_id)
+    db.session.delete(invoice)
+    db.session.commit()
+    flash('Invoice has been deleted successfully.', 'success')
+    return redirect(url_for('invoices.index'))
