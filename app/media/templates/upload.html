@@ -1,0 +1,93 @@
+<!-- Extends admin template -->
+{% extends "admin/admin.html" %}
+
+<!-- Block title -->
+{% block title %}Upload media files{% endblock %}
+
+<!-- Block content -->
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main">
+  <div class="w3-container">
+    <div class="d-flex align-items-center mb-4">
+      <h3 class="mb-0 mr-3">UPLOAD MEDIA</h3>
+    </div>
+    <form
+      id="uploadForm"
+      method="POST"
+      enctype="multipart/form-data"
+      action="{{ url_for('media.upload_file') }}"
+    >
+      <div class="custom-file mb-3">
+        <input type="file" id="fileInput" name="files[]" class="custom-file-input" multiple required />
+        <label class="custom-file-label" for="fileInput">Choose files</label>
+      </div>
+      <button type="submit" id="uploadButton" class="btn btn-primary btn-upload">
+        <i class="fas fa-cloud-upload-alt"></i> Upload
+      </button>
+    </form>
+    <div id="progressBar" class="mt-3">
+      <div>0%</div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<!-- Custom JS for upload progress -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("uploadForm");
+    const fileInput = document.getElementById("fileInput");
+    const uploadButton = document.getElementById("uploadButton");
+    const progressBar = document.getElementById("progressBar");
+    const progressBarFill = progressBar.querySelector("div");
+    const fileLabel = document.querySelector(".custom-file-label");
+
+    fileInput.addEventListener("change", function () {
+      const files = Array.from(fileInput.files)
+        .map((file) => file.name)
+        .join(", ");
+      fileLabel.textContent = files ? files : "Choose files";
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault(); // Prevent the default form submission
+
+      const files = fileInput.files;
+      if (files.length === 0) {
+        alert("Please select at least one file.");
+        return;
+      }
+
+      const formData = new FormData();
+      for (const file of files) {
+        formData.append("files[]", file);
+      }
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", form.action, true);
+
+      xhr.upload.addEventListener("progress", (e) => {
+        if (e.lengthComputable) {
+          const percentComplete = (e.loaded / e.total) * 100;
+          progressBar.style.display = "block";
+          progressBarFill.style.width = percentComplete + "%";
+          progressBarFill.textContent = Math.round(percentComplete) + "%";
+        }
+      });
+
+      xhr.addEventListener("load", () => {
+        if (xhr.status === 200) {
+          alert("Files uploaded successfully!");
+          window.location.href = "{{ url_for('media.gallery') }}"; // redirect to gallery page
+        } else {
+          alert("Error uploading files.");
+        }
+        progressBar.style.display = "none";
+        progressBarFill.style.width = "0%";
+      });
+
+      xhr.send(formData);
+    });
+  });
+</script>
+{% endblock %}
