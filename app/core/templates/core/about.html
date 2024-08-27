@@ -1,0 +1,214 @@
+{% extends "core/base.html" %}
+
+<!-- Block title -->
+{% block title %}About Us | Nexgensof Digital Company{% endblock %}
+
+<!-- Block Content -->
+{% block content %}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center py-5">
+    <h1 class="display-2 text-white mb-4 animated slideInDown">About Us</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+        <li class="breadcrumb-item text-primary" aria-current="page">About</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- About Start -->
+<div class="container-xxl about my-5">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-lg-6">
+        <div class="h-100 d-flex align-items-center justify-content-center" style="min-height: 300px">
+          <button
+            type="button"
+            class="btn-play"
+            data-bs-toggle="modal"
+            data-src="#"
+            data-bs-target="#videoModal"
+          >
+            <span></span>
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-6 pt-lg-5 wow fadeIn" data-wow-delay="0.5s">
+        <div class="bg-white rounded-top p-5 mt-lg-5">
+          <p class="fs-5 fw-medium text-primary">About Us</p>
+          <h1 class="display-6 mb-4">Modern and Dynamic Digital Solutions</h1>
+          <p class="mb-4">
+            Nexgensof is an innovative software company dedicated to delivering cutting-edge digital solutions
+            tailored to meet the evolving needs of businesses across various industries.
+          </p>
+          <div class="row g-5 pt-2 mb-5">
+            <div class="col-sm-6">
+              <img class="img-fluid mb-4" src="img/icon/icon-5.png" alt="" />
+              <h5 class="mb-3">Managed Services</h5>
+              <span>Modern and Dynamic Digital Solutions</span>
+            </div>
+            <div class="col-sm-6">
+              <img class="img-fluid mb-4" src="img/icon/icon-2.png" alt="" />
+              <h5 class="mb-3">Dedicated Experts</h5>
+              <span>Modern and Dynamic Digital Solutions</span>
+            </div>
+          </div>
+          <a class="btn btn-primary rounded-pill py-3 px-5" href="">Explore More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About End -->
+
+<!-- Video Modal Start -->
+<div
+  class="modal modal-video fade"
+  id="videoModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Intro Video</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- 16:9 aspect ratio -->
+        <div class="ratio ratio-16x9">
+          <iframe
+            class="embed-responsive-item"
+            src=""
+            id="video"
+            allowfullscreen
+            allowscriptaccess="always"
+            allow="autoplay"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Video Modal End -->
+
+<!-- Team Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px">
+      <p class="fs-5 fw-medium text-primary">Our Team</p>
+      <h1 class="display-5 mb-5">Our Expert People Ready to Help You</h1>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="team-item rounded overflow-hidden pb-4">
+          <img
+            class="img-fluid mb-4"
+            src="{{ url_for('core.static', filename='img/team/Mutai-Kelvin.jpg') }}"
+            alt=""
+          />
+          <h5>Mutai Kelvin</h5>
+          <span class="text-primary">Founder & CEO</span>
+          <ul class="team-social">
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="team-item rounded overflow-hidden pb-4">
+          <img
+            class="img-fluid mb-4"
+            src="{{ url_for('core.static', filename='img/team/team-6.jpg') }}"
+            alt=""
+          />
+          <h5>Essy Kins</h5>
+          <span class="text-primary">Co Founder</span>
+          <ul class="team-social">
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="team-item rounded overflow-hidden pb-4">
+          <img
+            class="img-fluid mb-4"
+            src="{{ url_for('core.static', filename='img/team/team-7.png') }}"
+            alt=""
+          />
+          <h5>Albert Lewis</h5>
+          <span class="text-primary">Executive Manager</span>
+          <ul class="team-social">
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+        <div class="team-item rounded overflow-hidden pb-4">
+          <img
+            class="img-fluid mb-4"
+            src="{{ url_for('core.static', filename='img/team/team-5.avif') }}"
+            alt=""
+          />
+          <h5>Nicole Allete</h5>
+          <span class="text-primary">Digital Marketer</span>
+          <ul class="team-social">
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a class="btn btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team End -->
+
+{% endblock %}
