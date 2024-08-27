@@ -1,0 +1,64 @@
+{% extends "core/base.html" %}
+
+<!-- Block titile -->
+
+{% block title %}Login | Admin Dashboard{% endblock %}
+
+<!-- Block content -->
+
+{% block content %}
+<!-- Container for centering the login form on the page -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h1 class="h4">Login</h1>
+        </div>
+
+        <div class="card-body">
+          <!-- Login form starts here -->
+          <form method="POST">
+            <!-- Email input field with Bootstrap styling -->
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <!-- Password input field with Bootstrap styling -->
+            <div class="form-group mt-3">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <!-- Login button styled with Bootstrap -->
+            <div class="d-grid gap-2 mt-4">
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Card footer with a link to the registration page -->
+        <div class="card-footer text-center">
+          <a href="{{ url_for('users.register') }}">Don't have an account? Register here.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of container -->
+{% endblock %}
