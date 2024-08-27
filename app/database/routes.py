@@ -31,4 +31,4 @@ def db_details():
         except SQLAlchemyError as e:
             tables_data[table_name] = str(e)
     
-    return render_template('db_details.html', tables_data=tables_data)
+    return render_template('database/db_details.html', tables_data=tables_data)
