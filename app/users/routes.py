@@ -62,3 +62,12 @@ def login():
             flash('Login failed. Check your email and/or password.', 'danger')
 
     return render_template('users/login.html')
+
+# Logout
+
+@users.route('/logout', methods=['POST'])
+@login_required
+def logout():
+    logout_user()
+    flash('You are now logged out!', 'success')
+    return redirect(url_for('users.login'))
