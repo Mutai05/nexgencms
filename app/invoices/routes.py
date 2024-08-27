@@ -48,3 +48,24 @@ def new():
 def view_invoice(invoice_id):
     invoice = Invoice.query.get_or_404(invoice_id)
     return render_template('single_invoice.html', invoice=invoice)
+
+# Generate Invoice PDF
+
+@invoices.route('/invoice/<int:invoice_id>/pdf')
+@login_required
+def generate_pdf(invoice_id):
+    invoice = Invoice.query.get_or_404(invoice_id)
+    rendered = render_template('invoice_pdf.html', invoice=invoice)
+    
+    pdf = HTML(string=rendered).write_pdf()
+    
+    # Dynamically generate the filename based on the invoice_to field
+    filename = f"{invoice.invoice_to.replace(' ', '_')}.pdf"
+    
+    response = send_file(
+        io.BytesIO(pdf),
+        as_attachment=True,
+        download_name=filename,
+        mimetype='application/pdf'
+    )
+    return response
