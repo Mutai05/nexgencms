@@ -46,9 +46,6 @@ def create_app():
     from app.database import database
     app.register_blueprint(database, url_prefix='/database')
 
-    from app.blog.api import api as blog_api
-    app.register_blueprint(blog_api, url_prefix='/api')
-
     from app.users.models import User
 
     @login_manager.user_loader
